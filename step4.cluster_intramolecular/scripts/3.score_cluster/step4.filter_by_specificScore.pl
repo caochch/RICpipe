@@ -15,7 +15,7 @@ while(my $line=<CWS>){
 }
 
 
-print "Chr_LeftArm\tLeftArm_start\tLeftArm_end\tChr_RightArm\tRightArm_start\tRightArm_end\n";
+print "Chr_LeftArm\tLeftArm_start\tLeftArm_end\tChr_RightArm\tRightArm_start\tRightArm_end\t";
 print "Cluster_ID\tNumberOfChimericReads\tNumberOfChimericFragments\tReadsInLeftArm\tReadsInRightArm\tConnectionScore\n";
 
 foreach my $i (sort {$a<=>$b} keys %cluster){

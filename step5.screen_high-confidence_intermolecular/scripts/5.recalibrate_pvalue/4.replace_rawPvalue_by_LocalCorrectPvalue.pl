@@ -13,9 +13,8 @@ while(my $line=<RW>){
 	my @sub=split/\s+/,$line;	
 	my @sub_test=split/\s+/,$test_line;
 	
-	$sub[14]=$sub_test[4];
 	my $new_line=join"\t",@sub[0..14];
-	$new_line.="\t".$sub_test[5]."\t".$sub[15];
+	$new_line.="\t".$sub_test[4]."\t".$sub[15];
 	print $new_line,"\n";
 }
 

@@ -26,7 +26,13 @@ Download and install cutadapt (v.1.15) for cropping low-complexity fragments fro
 
 https://cutadapt.readthedocs.io/en/stable
 
+To extract pairwise splicing site from gtf files:
+#step1: perl gtf_to_bed.pl gencode.v19.annotation.gtf > gencode.v19.annotation.bed
+#step2: perl creat_junction_bed.pl gencode.v19.annotation.bed > gencode.v19.all_exon_junction.bed
+This is an example bash to obtain pairwise splicing sites from genocode.v19 annotation files.  These two perl scripts are also uploaded to the scripts folder.
 
 Important:
 
 Add these programs to the PATH environment variable.
+
+

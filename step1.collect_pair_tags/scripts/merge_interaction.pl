@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-die "perl $0 num_of_interactions_from_part.list interaction_from_pair_mapped_reads_1.sort.sam interaction_from_pair_mapped_reads_2.sort.sam interaction_from_gapped_reads.sam read1Chimeric.out.processed.sam read2Chimeric.out.processed.sam interaction_merge.sam\n" if(@ARGV != 7);
+die "perl $0 num_of_interactions_from_part.list interaction_from_pair_mapped_reads_1.sort.sam interaction_from_pair_mapped_reads_2.sort.sam interaction_from_gapped_reads.sam pcp_rep1_read1Chimeric.out.processed.sam pcp_rep1_read2Chimeric.out.processed.sam interaction_merge.sam\n" if(@ARGV != 7);
 
 my $num_of_interactions_from_part_list=shift;
 my $paired_read_1_sam=shift;
@@ -272,19 +272,23 @@ while(my $frag_a=<GS>){
 
 			if($gapped_pair_id >= $part_from_AlignPair_readA_start and $gapped_pair_id <= $part_from_AlignPair_readA_end){
 				$strand_a_symbol=read_strand_to_symbol(1,$strand_a);
+				print OUTS "Part_",$interaction_id,"_",$strand_a_symbol,"_",$frag_a,"\n";
+				print OUTS "Part_",$interaction_id,"_",$strand_a_symbol,"_",$frag_b,"\n";
 			}
 			elsif($gapped_pair_id >= $part_from_AlignPair_readB_start and $gapped_pair_id <= $part_from_AlignPair_readB_end){
 				$strand_a_symbol=read_strand_to_symbol(2,$strand_a);
+				print OUTS "Part_",$interaction_id,"_",$strand_a_symbol,"_",$frag_a,"\n";
+				print OUTS "Part_",$interaction_id,"_",$strand_a_symbol,"_",$frag_b,"\n";
 			}
 			elsif($gapped_pair_id >= $part_from_ChimericPair_readA_start and $gapped_pair_id <= $part_from_ChimericPair_readA_end){
-				$strand_a_symbol=read_strand_to_symbol(1,$strand_a);
+				#$strand_a_symbol=read_strand_to_symbol(1,$strand_a);
+				next;
 			}
 			elsif($gapped_pair_id >= $part_from_ChimericPair_readB_start and $gapped_pair_id <= $part_from_ChimericPair_readB_end){
-				$strand_a_symbol=read_strand_to_symbol(2,$strand_a);
+				#$strand_a_symbol=read_strand_to_symbol(2,$strand_a);
+				next;
 			}
 
-			print OUTS "Part_",$interaction_id,"_",$strand_a_symbol,"_",$frag_a,"\n";
-			print OUTS "Part_",$interaction_id,"_",$strand_a_symbol,"_",$frag_b,"\n";
 		}
 	}
 }

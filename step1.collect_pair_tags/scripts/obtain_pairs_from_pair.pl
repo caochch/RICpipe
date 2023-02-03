@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-die "Collect mapped paired-end reads from mapping results of read1 and read2\n\nUsage: two parameters are required\nperl $0 <read_1Aligned.out.sam> <read_2Aligned.out.sam>"  if(@ARGV != 2);
+die "perl $0 <read_1Aligned.out.sam> <read_2Aligned.out.sam>"  if(@ARGV != 2);
 my $align_sam_1=shift;
 my $align_sam_2=shift;
 
